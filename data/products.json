@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nome": "Brigadeiro",
+    "categoria": "Picolé Gourmet",
+    "preco": 5.00,
+    "emoji": "🍫",
+    "descricao": "Cobertura de chocolate ao leite"
+  },
+  {
+    "id": 2,
+    "nome": "Cassata",
+    "categoria": "Picolé Gourmet",
+    "preco": 5.00,
+    "emoji": "🍧",
+    "descricao": "Frutas com sorvete cremoso"
+  },
+  {
+    "id": 3,
+    "nome": "Negresco",
+    "categoria": "Picolé Gourmet",
+    "preco": 5.00,
+    "emoji": "🍪",
+    "descricao": "Biscoito com creme"
+  },
+  {
+    "id": 4,
+    "nome": "Morango",
+    "categoria": "Picolé Gourmet",
+    "preco": 5.00,
+    "emoji": "🍓",
+    "descricao": "Cobertura de morango"
+  },
+  {
+    "id": 5,
+    "nome": "Maracujá",
+    "categoria": "Picolé Gourmet",
+    "preco": 5.00,
+    "emoji": "🌟",
+    "descricao": "Azedinho e refrescante"
+  }
+]

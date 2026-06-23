@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRIO GELADO — Gelado Gourmet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER: logo + filtros de categoria -->
+  <header class="header">
+    <div class="header__brand">
+      <span class="header__logo">TRIO GELADO</span>
+      <span class="header__sub">Gelado Gourmet</span>
+    </div>
+    <div class="header__filters" id="filters"></div>
+  </header>
+
+  <!-- GRID DE PRODUTOS (preenchido pelo JS) -->
+  <main class="main">
+    <div class="product-grid" id="product-grid"></div>
+  </main>
+
+  <!-- BOTÃO FLUTUANTE DO CARRINHO -->
+  <button class="cart-btn" id="cart-btn" style="display:none" aria-label="Ver carrinho"></button>
+
+  <!-- OVERLAY (fecha bottom sheet ao clicar fora) -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- BOTTOM SHEET -->
+  <div class="bottom-sheet" id="bottom-sheet" aria-modal="true" role="dialog">
+    <div class="bottom-sheet__handle"></div>
+    <h2 class="bottom-sheet__title">🛒 Seu pedido</h2>
+
+    <div class="cart-items" id="cart-items"></div>
+    <p class="cart-total" id="cart-total"></p>
+
+    <div class="delivery-toggle">
+      <button class="delivery-toggle__btn active" id="btn-delivery">📍 Entrega</button>
+      <button class="delivery-toggle__btn" id="btn-pickup">🏪 Retirada</button>
+    </div>
+
+    <textarea
+      class="address-input"
+      id="address-input"
+      placeholder="Rua, número, bairro..."
+      rows="3"
+      aria-label="Endereço de entrega"
+    ></textarea>
+
+    <p class="pickup-msg" id="pickup-msg" style="display:none">
+      Combinamos o local de retirada no WhatsApp.
+    </p>
+
+    <button class="whatsapp-btn" id="whatsapp-btn">
+      💬 Confirmar via WhatsApp
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

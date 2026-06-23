@@ -163,11 +163,41 @@ function updateCartButton() {
   }
 }
 
+// ===== WHATSAPP =====
+function buildWhatsAppMessage() {
+  const lines = cart.map(c =>
+    `• ${c.nome} x${c.qty} — R$ ${formatPrice(c.preco * c.qty)}`
+  ).join('\n');
+
+  const totalLine = `*Total: R$ ${formatPrice(getTotal())}*`;
+
+  const deliveryLine = deliveryMode === 'delivery'
+    ? `📍 *Entrega:* ${addressInput.value.trim()}`
+    : `🏪 *Retirada no local*`;
+
+  return `🍦 *Pedido Trio Gelado*\n\n${lines}\n\n${totalLine}\n\n${deliveryLine}`;
+}
+
+function confirmOrder() {
+  if (deliveryMode === 'delivery' && !addressInput.value.trim()) {
+    addressInput.classList.add('error');
+    addressInput.placeholder = 'Informe o endereço para continuar';
+    addressInput.focus();
+    return;
+  }
+  addressInput.classList.remove('error');
+
+  const message = buildWhatsAppMessage();
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
 // ===== EVENT LISTENERS =====
 cartBtn.addEventListener('click', openBottomSheet);
 overlay.addEventListener('click', closeBottomSheet);
 btnDelivery.addEventListener('click', () => setDeliveryMode('delivery'));
 btnPickup.addEventListener('click', () => setDeliveryMode('pickup'));
+whatsappBtn.addEventListener('click', confirmOrder);
 
 // ===== BOOTSTRAP =====
 document.addEventListener('DOMContentLoaded', init);

@@ -85,6 +85,44 @@ function formatPrice(value) {
   return value.toFixed(2).replace('.', ',');
 }
 
+// ===== BOTTOM SHEET =====
+function openBottomSheet() {
+  renderBottomSheet();
+  overlay.classList.add('visible');
+  bottomSheet.classList.add('open');
+}
+
+function closeBottomSheet() {
+  overlay.classList.remove('visible');
+  bottomSheet.classList.remove('open');
+}
+
+function renderBottomSheet() {
+  cartItemsEl.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <span class="cart-item__emoji">${item.emoji}</span>
+      <span class="cart-item__name">${item.nome}</span>
+      <div class="cart-item__controls">
+        <button onclick="updateCartQty(${item.id}, -1)" aria-label="Diminuir">−</button>
+        <span>${item.qty}</span>
+        <button onclick="updateCartQty(${item.id}, 1)" aria-label="Aumentar">+</button>
+      </div>
+      <span class="cart-item__subtotal">R$ ${formatPrice(item.preco * item.qty)}</span>
+    </div>
+  `).join('');
+
+  cartTotalEl.textContent = `Total: R$ ${formatPrice(getTotal())}`;
+  whatsappBtn.textContent = `💬 Confirmar via WhatsApp — R$ ${formatPrice(getTotal())}`;
+}
+
+function setDeliveryMode(mode) {
+  deliveryMode = mode;
+  btnDelivery.classList.toggle('active', mode === 'delivery');
+  btnPickup.classList.toggle('active', mode === 'pickup');
+  addressInput.style.display  = mode === 'delivery' ? 'block' : 'none';
+  pickupMsg.style.display     = mode === 'pickup'   ? 'block' : 'none';
+}
+
 // ===== CARRINHO =====
 function addToCart(id) {
   const product = products.find(p => p.id === id);
@@ -124,6 +162,12 @@ function updateCartButton() {
     if (typeof closeBottomSheet === 'function') closeBottomSheet();
   }
 }
+
+// ===== EVENT LISTENERS =====
+cartBtn.addEventListener('click', openBottomSheet);
+overlay.addEventListener('click', closeBottomSheet);
+btnDelivery.addEventListener('click', () => setDeliveryMode('delivery'));
+btnPickup.addEventListener('click', () => setDeliveryMode('pickup'));
 
 // ===== BOOTSTRAP =====
 document.addEventListener('DOMContentLoaded', init);

@@ -85,5 +85,45 @@ function formatPrice(value) {
   return value.toFixed(2).replace('.', ',');
 }
 
+// ===== CARRINHO =====
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ id: product.id, nome: product.nome, preco: product.preco, emoji: product.emoji, qty: 1 });
+  }
+  updateCartButton();
+}
+
+function updateCartQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  updateCartButton();
+  if (typeof renderBottomSheet === 'function') renderBottomSheet();
+}
+
+function getTotal() {
+  return cart.reduce((sum, c) => sum + c.preco * c.qty, 0);
+}
+
+function getItemCount() {
+  return cart.reduce((sum, c) => sum + c.qty, 0);
+}
+
+function updateCartButton() {
+  const count = getItemCount();
+  if (count > 0) {
+    cartBtn.style.display = 'block';
+    cartBtn.textContent = `🛒 Ver pedido (${count}) — R$ ${formatPrice(getTotal())}`;
+  } else {
+    cartBtn.style.display = 'none';
+    if (typeof closeBottomSheet === 'function') closeBottomSheet();
+  }
+}
+
 // ===== BOOTSTRAP =====
 document.addEventListener('DOMContentLoaded', init);

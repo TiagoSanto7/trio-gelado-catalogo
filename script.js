@@ -1,18 +1,9 @@
 // ===== CONSTANTES =====
 const WHATSAPP_NUMBER = '5565000000000'; // Substituir pelo número real da Trio Gelados
 
-const CARD_GRADIENTS = [
-  'linear-gradient(135deg, #ddd6fe, #7c3aed)',
-  'linear-gradient(135deg, #fde68a, #d97706)',
-  'linear-gradient(135deg, #fecdd3, #e11d48)',
-  'linear-gradient(135deg, #c4b5fd, #5b21b6)',
-  'linear-gradient(135deg, #fed7aa, #c2410c)',
-  'linear-gradient(135deg, #fbcfe8, #be185d)',
-];
-
 // ===== ESTADO =====
 let products = [];
-let cart = [];          // [{ id, nome, preco, emoji, qty }]
+let cart = [];          // [{ id, nome, preco, foto, qty }]
 let activeCategory = 'Todos';
 let deliveryMode = 'delivery'; // 'delivery' | 'pickup'
 
@@ -63,11 +54,8 @@ function renderProducts() {
 
   productGrid.innerHTML = filtered.map(p => `
     <div class="product-card">
-      <div
-        class="product-card__image"
-        style="background: ${CARD_GRADIENTS[p.id % CARD_GRADIENTS.length]}"
-      >
-        <span class="product-card__emoji">${p.emoji}</span>
+      <div class="product-card__image">
+        <img src="data/${p.foto}" alt="${p.nome}" loading="lazy" />
       </div>
       <div class="product-card__info">
         <span class="product-card__name">${p.nome}</span>
@@ -100,7 +88,7 @@ function closeBottomSheet() {
 function renderBottomSheet() {
   cartItemsEl.innerHTML = cart.map(item => `
     <div class="cart-item">
-      <span class="cart-item__emoji">${item.emoji}</span>
+      <img class="cart-item__thumb" src="data/${item.foto}" alt="${item.nome}" />
       <span class="cart-item__name">${item.nome}</span>
       <div class="cart-item__controls">
         <button onclick="updateCartQty(${item.id}, -1)" aria-label="Diminuir">−</button>
@@ -130,7 +118,7 @@ function addToCart(id) {
   if (existing) {
     existing.qty++;
   } else {
-    cart.push({ id: product.id, nome: product.nome, preco: product.preco, emoji: product.emoji, qty: 1 });
+    cart.push({ id: product.id, nome: product.nome, preco: product.preco, foto: product.foto, qty: 1 });
   }
   updateCartButton();
 }

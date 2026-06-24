@@ -4,7 +4,7 @@
     "nome": "Brigadeiro",
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
-    "emoji": "🍫",
+    "foto": "brigadeiro.jpeg",
     "descricao": "Cobertura de chocolate ao leite"
   },
   {
@@ -12,15 +12,15 @@
     "nome": "Casadinho",
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
-    "emoji": "🍧",
-    "descricao": "Frutas com sorvete cremoso"
+    "foto": "casadinho.jpeg",
+    "descricao": "Combinação irresistível"
   },
   {
     "id": 3,
     "nome": "Negresco",
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
-    "emoji": "🍪",
+    "foto": "negresco.jpeg",
     "descricao": "Biscoito com creme"
   },
   {
@@ -28,7 +28,7 @@
     "nome": "Morango",
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
-    "emoji": "🍓",
+    "foto": "morango.jpeg",
     "descricao": "Cobertura de morango"
   },
   {
@@ -36,7 +36,15 @@
     "nome": "Maracujá",
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
-    "emoji": "🌟",
+    "foto": "maracuja.jpeg",
     "descricao": "Azedinho e refrescante"
+  },
+  {
+    "id": 6,
+    "nome": "Milho",
+    "categoria": "Picolé Gourmet",
+    "preco": 5.00,
+    "foto": "milho.jpeg",
+    "descricao": "Sabor especial de milho"
   }
 ]

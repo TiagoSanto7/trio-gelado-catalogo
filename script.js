@@ -168,10 +168,10 @@ function buildWhatsAppMessage() {
   const totalLine = `*Total: R$ ${formatPrice(getTotal())}*`;
 
   const deliveryLine = deliveryMode === 'delivery'
-    ? `📍 *Entrega:* ${addressInput.value.trim()}`
-    : `🏪 *Retirada no local*`;
+    ? `*Entrega:* ${addressInput.value.trim()}`
+    : `*Retirada no local*`;
 
-  return `🍦 *Pedido Trio Gelado*\n\n${lines}\n\n${totalLine}\n\n${deliveryLine}`;
+  return `*Pedido Trio Gelado*\n\n${lines}\n\n${totalLine}\n\n${deliveryLine}`;
 }
 
 function confirmOrder() {

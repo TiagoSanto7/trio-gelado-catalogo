@@ -17,7 +17,8 @@ const cartItemsEl   = document.getElementById('cart-items');
 const cartTotalEl   = document.getElementById('cart-total');
 const addressInput  = document.getElementById('address-input');
 const pickupMsg     = document.getElementById('pickup-msg');
-const whatsappBtn   = document.getElementById('whatsapp-btn');
+const whatsappBtn      = document.getElementById('whatsapp-btn');
+const whatsappBtnLabel = document.getElementById('whatsapp-btn-label');
 const btnDelivery   = document.getElementById('btn-delivery');
 const btnPickup     = document.getElementById('btn-pickup');
 
@@ -90,6 +91,7 @@ function renderBottomSheet() {
     <div class="cart-item">
       <img class="cart-item__thumb" src="data/${item.foto}" alt="${item.nome}" />
       <span class="cart-item__name">${item.nome}</span>
+      <button class="cart-item__remove" onclick="removeFromCart(${item.id})" aria-label="Remover item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
       <div class="cart-item__controls">
         <button onclick="updateCartQty(${item.id}, -1)" aria-label="Diminuir">−</button>
         <span>${item.qty}</span>
@@ -100,7 +102,7 @@ function renderBottomSheet() {
   `).join('');
 
   cartTotalEl.textContent = `Total: R$ ${formatPrice(getTotal())}`;
-  whatsappBtn.textContent = `💬 Confirmar via WhatsApp — R$ ${formatPrice(getTotal())}`;
+  whatsappBtnLabel.textContent = `Confirmar via WhatsApp — R$ ${formatPrice(getTotal())}`;
 }
 
 function setDeliveryMode(mode) {
@@ -130,6 +132,12 @@ function updateCartQty(id, delta) {
   if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
   updateCartButton();
   if (typeof renderBottomSheet === 'function') renderBottomSheet();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(c => c.id !== id);
+  updateCartButton();
+  if (cart.length > 0) renderBottomSheet();
 }
 
 function getTotal() {

@@ -5,7 +5,7 @@
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
     "foto": "brigadeiro.jpeg",
-    "descricao": "Cobertura de chocolate ao leite"
+    "descricao": "Chocolate ao leite, leite condensado e granulado"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
     "foto": "casadinho.jpeg",
-    "descricao": "Combinação irresistível"
+    "descricao": "Leite Ninho, creme de leite e coco ralado"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
     "foto": "negresco.jpeg",
-    "descricao": "Biscoito com creme"
+    "descricao": "Biscoito Negresco triturado, creme de baunilha e chocolate"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
     "foto": "morango.jpeg",
-    "descricao": "Cobertura de morango"
+    "descricao": "Morango fresco, leite condensado e creme de leite"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
     "foto": "maracuja.jpeg",
-    "descricao": "Azedinho e refrescante"
+    "descricao": "Polpa de maracujá, leite condensado e creme de leite"
   },
   {
     "id": 6,
@@ -45,6 +45,6 @@
     "categoria": "Picolé Gourmet",
     "preco": 5.00,
     "foto": "milho.jpeg",
-    "descricao": "Sabor especial de milho"
+    "descricao": "Milho verde, leite condensado e baunilha"
   }
 ]

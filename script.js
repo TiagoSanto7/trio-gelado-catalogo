@@ -60,6 +60,7 @@ function renderProducts() {
       </div>
       <div class="product-card__info">
         <span class="product-card__name">${p.nome}</span>
+        <span class="product-card__desc">${p.descricao}</span>
         <span class="product-card__price">R$ ${formatPrice(p.preco)}</span>
       </div>
       <button class="product-card__btn" onclick="addToCart(${p.id})">

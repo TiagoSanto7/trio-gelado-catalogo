@@ -7,6 +7,7 @@ let products = [];
 let cart = [];          // [{ id, nome, preco, foto, qty }]
 let activeCategory = 'Todos';
 let deliveryMode = 'delivery'; // 'delivery' | 'pickup'
+let paymentMethod = 'pix';    // 'pix' | 'card' | 'cash'
 
 // ===== REFS DOM =====
 const productGrid   = document.getElementById('product-grid');
@@ -22,6 +23,9 @@ const whatsappBtn      = document.getElementById('whatsapp-btn');
 const whatsappBtnLabel = document.getElementById('whatsapp-btn-label');
 const btnDelivery   = document.getElementById('btn-delivery');
 const btnPickup     = document.getElementById('btn-pickup');
+const btnPix        = document.getElementById('btn-pix');
+const btnCard       = document.getElementById('btn-card');
+const btnCash       = document.getElementById('btn-cash');
 
 // ===== INIT =====
 async function init() {
@@ -115,6 +119,13 @@ function setDeliveryMode(mode) {
   pickupMsg.style.display     = mode === 'pickup'   ? 'block' : 'none';
 }
 
+function setPaymentMethod(method) {
+  paymentMethod = method;
+  btnPix.classList.toggle('active',  method === 'pix');
+  btnCard.classList.toggle('active', method === 'card');
+  btnCash.classList.toggle('active', method === 'cash');
+}
+
 // ===== CARRINHO =====
 function addToCart(id) {
   const product = products.find(p => p.id === id);
@@ -173,7 +184,10 @@ function buildWhatsAppMessage() {
     ? `📍 *Entrega:* ${addressInput.value.trim()}`
     : `🏪 *Retirada no local*`;
 
-  return `❤️❤️❤️ *Pedido Trio Gelado*\n\n${lines}\n\n${totalLine}\n\n${deliveryLine}`;
+  const PAYMENT_LABELS = { pix: 'Pix', card: 'Cartão', cash: 'Dinheiro' };
+  const paymentLine = `*Pagamento:* ${PAYMENT_LABELS[paymentMethod]}`;
+
+  return `❤️❤️❤️ *Pedido Trio Gelado*\n\n${lines}\n\n${totalLine}\n\n${deliveryLine}\n${paymentLine}`;
 }
 
 function confirmOrder() {
@@ -195,6 +209,9 @@ cartBtn.addEventListener('click', openBottomSheet);
 overlay.addEventListener('click', closeBottomSheet);
 btnDelivery.addEventListener('click', () => setDeliveryMode('delivery'));
 btnPickup.addEventListener('click', () => setDeliveryMode('pickup'));
+btnPix.addEventListener('click',  () => setPaymentMethod('pix'));
+btnCard.addEventListener('click', () => setPaymentMethod('card'));
+btnCash.addEventListener('click', () => setPaymentMethod('cash'));
 whatsappBtn.addEventListener('click', confirmOrder);
 
 // ===== BOOTSTRAP =====

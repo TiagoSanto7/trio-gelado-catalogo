@@ -303,6 +303,16 @@ button { font-family: inherit; }
   margin-bottom: 12px;
 }
 
+/* Label de seção */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cor-texto-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
 /* Toggle entrega / retirada */
 .delivery-toggle { display: flex; gap: 8px; margin-bottom: 12px; }
 .delivery-toggle__btn {

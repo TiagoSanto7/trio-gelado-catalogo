@@ -162,16 +162,16 @@ function updateCartButton() {
 // ===== WHATSAPP =====
 function buildWhatsAppMessage() {
   const lines = cart.map(c =>
-    `• ${c.nome} x${c.qty} — R$ ${formatPrice(c.preco * c.qty)}`
+    `• 🍦 ${c.nome} x${c.qty} — R$ ${formatPrice(c.preco * c.qty)}`
   ).join('\n');
 
   const totalLine = `*Total: R$ ${formatPrice(getTotal())}*`;
 
   const deliveryLine = deliveryMode === 'delivery'
-    ? `*Entrega:* ${addressInput.value.trim()}`
-    : `*Retirada no local*`;
+    ? `📍 *Entrega:* ${addressInput.value.trim()}`
+    : `🏪 *Retirada no local*`;
 
-  return `*Pedido Trio Gelado*\n\n${lines}\n\n${totalLine}\n\n${deliveryLine}`;
+  return `❤️❤️❤️ *Pedido Trio Gelado*\n\n${lines}\n\n${totalLine}\n\n${deliveryLine}`;
 }
 
 function confirmOrder() {

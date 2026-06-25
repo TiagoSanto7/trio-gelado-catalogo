@@ -1,5 +1,5 @@
 // ===== CONSTANTES =====
-const WHATSAPP_NUMBER = '5565000000000'; // Substituir pelo número real da Trio Gelados
+const WHATSAPP_NUMBER = '5566992058707'; // Substituir pelo número real da Trio Gelados
 
 // ===== ESTADO =====
 let products = [];

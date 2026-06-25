@@ -190,6 +190,9 @@ button { font-family: inherit; }
   z-index: 20;
   white-space: nowrap;
   transition: var(--transicao);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .cart-btn:hover { background: var(--cor-primaria-escuro); }
 

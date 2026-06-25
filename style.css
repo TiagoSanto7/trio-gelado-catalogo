@@ -37,7 +37,9 @@ button { font-family: inherit; }
 }
 
 .header__logo {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-family: 'Balsamiq Sans', cursive;
   font-size: 1.2rem;
   font-weight: 700;

@@ -41,6 +41,19 @@ button { font-family: inherit; }
   background: var(--cor-primaria);
   color: white;
   padding: 12px 16px 0;
+  overflow: visible;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 46px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 55' preserveAspectRatio='none'%3E%3Cpath fill='%23889DDC' d='M0,0 H400 V10 C395,10 388,10 380,20 C372,32 368,44 358,46 C348,48 341,44 336,36 C331,26 327,12 318,10 H260 C255,10 248,10 240,22 C232,36 228,48 218,50 C208,52 201,48 196,40 C191,30 187,14 178,10 H120 C115,10 108,10 100,20 C92,32 88,44 78,46 C68,48 61,44 56,36 C51,26 47,12 38,10 H0 V0 Z'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  pointer-events: none;
 }
 
 .header__brand {
@@ -111,6 +124,7 @@ button { font-family: inherit; }
 /* ===== MAIN / GRID ===== */
 .main {
   padding: 16px;
+  padding-top: 58px;
   min-height: 100vh;
   padding-bottom: 80px;
 }

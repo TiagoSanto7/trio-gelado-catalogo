@@ -1,6 +1,6 @@
 // ===== CONSTANTES =====
 const WHATSAPP_NUMBER = '5566992058707'; // Substituir pelo número real da Trio Gelados
-const CART_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="13" rx="2" fill="#D4B896" stroke="#9C7A45" stroke-width="1.2"/><path d="M9 9 C9 5 15 5 15 9" fill="none" stroke="#9C7A45" stroke-width="1.8" stroke-linecap="round"/><rect x="5.5" y="11.5" width="13" height="8.5" rx="1" fill="none" stroke="#B89060" stroke-width="0.8" stroke-dasharray="1.5 1.5"/></svg>';
+const CART_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><rect x="6" y="5" width="12" height="17" rx="1.5" fill="#D4B896" stroke="#9C7A45" stroke-width="1.2"/><rect x="6" y="5" width="12" height="2.5" rx="1" fill="#C4A47C" stroke="#9C7A45" stroke-width="1.2"/><path d="M9 5 Q9 1 12 1 Q15 1 15 5" fill="none" stroke="#9C7A45" stroke-width="1.8" stroke-linecap="round"/><rect x="8" y="9.5" width="8" height="10" rx="0.5" fill="none" stroke="#B89060" stroke-width="0.7" stroke-dasharray="1.5 1.5"/></svg>';
 
 // ===== ESTADO =====
 let products = [];
